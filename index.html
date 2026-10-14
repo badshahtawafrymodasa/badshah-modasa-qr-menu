@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Badshah Tawa Fry | Digital Menu</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header class="hero">
+    <div class="crown">♛</div>
+    <p class="tagline">THE ROYAL TASTE</p>
+    <h1>BADSHAH <span>TAWA FRY</span></h1>
+    <p id="welcome">સ્વાગત છે! તમારા સ્વાદની શાહી સફરમાં.</p>
+    <p class="subtitle">A Royal Taste, Every Time.</p>
+    <div class="table-badge" id="tableBadge" hidden></div>
+
+    <div class="language">
+      <button onclick="setLanguage('gu')" id="guBtn">ગુજરાતી</button>
+      <button onclick="setLanguage('en')" id="enBtn">English</button>
+    </div>
+
+    <a href="#menu" class="menu-button" id="menuLink">EXPLORE OUR MENU ↓</a>
+  </header>
+
+  <main id="menu">
+    <div class="section-heading">
+      <p class="tagline">MADE WITH PASSION</p>
+      <h2 id="menuTitle">Our Digital Menu</h2>
+      <p id="menuSubtitle">Discover your next favourite dish.</p>
+    </div>
+
+    <div class="menu-grid">
+
+      <article class="menu-card">
+        <div class="food-icon">🍗</div>
+        <div class="card-content">
+          <span class="category" id="cat1">SPECIALITY</span>
+          <h3 id="dish1">Badshah Chicken</h3>
+          <p id="desc1">Our signature chicken speciality.</p>
+          <p class="price" id="price1">Price coming soon</p>
+        </div>
+      </article>
+
+      <article class="menu-card">
+        <div class="food-icon">🍛</div>
+        <div class="card-content">
+          <span class="category" id="cat2">CHICKEN</span>
+          <h3 id="dish2">Desi Style Chicken</h3>
+          <p id="desc2">Traditional chicken curry with rassa.</p>
+          <p class="price" id="price2">Price coming soon</p>
+        </div>
+      </article>
+
+      <article class="menu-card">
+        <div class="food-icon">🫓</div>
+        <div class="card-content">
+          <span class="category" id="cat3">TRADITIONAL</span>
+          <h3 id="dish3">Bajra Rotla</h3>
+          <p id="desc3">Traditional Gujarati millet bread.</p>
+          <p class="price" id="price3">Price coming soon</p>
+        </div>
+      </article>
+
+      <article class="menu-card">
+        <div class="food-icon">🌽</div>
+        <div class="card-content">
+          <span class="category" id="cat4">TRADITIONAL</span>
+          <h3 id="dish4">Makke Ka Rotla</h3>
+          <p id="desc4">Traditional maize flour rotla.</p>
+          <p class="price" id="price4">Price coming soon</p>
+        </div>
+      </article>
+
+    </div>
+
+    <section class="experience" id="experience">
+  <div class="section-heading">
+    <p class="tagline">THE BADSHAH EXPERIENCE</p>
+    <h2 id="experienceTitle">Make Your Wait Fun!</h2>
+    <p id="experienceSubtitle">
+      Explore, play and enjoy while your order is being prepared.
+    </p>
+  </div>
+
+  <div class="experience-grid">
+    <article class="experience-card">
+      <div class="experience-icon">🍽️</div>
+      <h3 id="experienceMenuTitle">Digital Menu</h3>
+      <p id="experienceMenuText">
+        Explore our delicious food menu.
+      </p>
+      <a href="#menu" class="experience-button" id="experienceMenuButton">
+        View Menu
+      </a>
+    </article>
+
+    <article class="experience-card">
+      <div class="experience-icon">📸</div>
+      <h3 id="experienceInstagramTitle">Follow Badshah</h3>
+      <p id="experienceInstagramText">
+        Follow us for food updates and offers.
+      </p>
+      <button
+        class="experience-button"
+        id="instagramButton"
+        onclick="openInstagram()">
+        Visit Instagram
+      </button>
+    </article>
+
+    <article class="experience-card">
+      <div class="experience-icon">🎮</div>
+      <h3 id="experienceGameTitle">Time Pass Game</h3>
+      <p id="experienceGameText">
+        Try your luck while waiting for your order!
+      </p>
+      <button
+        class="experience-button"
+        id="gameButton"
+        onclick="playGame()">
+        Play Now
+      </button>
+    </article>
+  </div>
+
+  <div class="game-box" id="gameBox" hidden>
+    <h3 id="gameHeading">Badshah Lucky Number 👑</h3>
+    <p id="gameInstruction">
+      Pick a number from 1 to 5.
+    </p>
+
+    <div class="number-buttons">
+      <button onclick="guessNumber(1)">1</button>
+      <button onclick="guessNumber(2)">2</button>
+      <button onclick="guessNumber(3)">3</button>
+      <button onclick="guessNumber(4)">4</button>
+      <button onclick="guessNumber(5)">5</button>
+    </div>
+
+    <p id="gameResult" aria-live="polite"></p>
+
+    <button class="experience-button" onclick="playGame()" id="playAgainButton">
+      Play Again
+    </button>
+  </div>
+</section>
+
+<div class="whatsapp-section">
+  <div class="whatsapp-icon">💬</div>
+  <h2 id="whatsappTitle">Need Help? Chat With Us!</h2>
+  <p id="whatsappText">
+    Contact Badshah Tawa Fry directly on WhatsApp.
+  </p>
+  <a
+    href="https://wa.me/918866359840"
+    target="_blank"
+    rel="noopener noreferrer"
+    class="whatsapp-button"
+    id="whatsappButton">
+    Chat on WhatsApp
+  </a>
+</div>
+
+    <div class="notice" id="notice">
+      Please ask our staff for the latest menu and prices.
+    </div>
+  </main>
+
+  <footer>
+    <div class="crown">♛</div>
+    <h2>BADSHAH TAWA FRY</h2>
+    <p id="footerText">Thank you for dining with us!</p>
+    <p class="location">MODASA · GUJARAT</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

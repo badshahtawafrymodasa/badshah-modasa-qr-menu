@@ -1,0 +1,513 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background: #f8f6f0;
+  color: #202020;
+  line-height: 1.6;
+}
+
+.hero {
+  min-height: 520px;
+  padding: 55px 20px 65px;
+  background: linear-gradient(145deg, #07152f, #102d55, #07152f);
+  color: #ffffff;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  border-bottom: 5px solid #d5ad53;
+}
+
+.hero::before,
+.hero::after {
+  content: "";
+  position: absolute;
+  width: 230px;
+  height: 230px;
+  border: 1px solid rgba(221, 183, 95, 0.2);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.hero::before {
+  top: -100px;
+  left: -100px;
+}
+
+.hero::after {
+  right: -100px;
+  bottom: -100px;
+}
+
+.crown {
+  color: #e4bd65;
+  font-size: 42px;
+  line-height: 1.2;
+  margin-bottom: 10px;
+}
+
+.tagline {
+  color: #dabb70;
+  font-size: 12px;
+  font-weight: bold;
+  letter-spacing: 4px;
+  margin-bottom: 12px;
+}
+
+.hero h1 {
+  font-size: clamp(30px, 6vw, 58px);
+  line-height: 1.2;
+  letter-spacing: 2px;
+  font-weight: 900;
+  margin-bottom: 20px;
+}
+
+.hero h1 span {
+  display: block;
+  color: #e4bd65;
+}
+
+#welcome {
+  font-size: clamp(18px, 3vw, 24px);
+  margin-bottom: 8px;
+}
+
+.subtitle {
+  color: #e5e5e5;
+  font-size: 15px;
+  letter-spacing: 1px;
+}
+
+.language {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin: 28px 0;
+}
+
+.language button {
+  min-width: 115px;
+  padding: 11px 20px;
+  border: 1px solid #dabb70;
+  border-radius: 25px;
+  background: transparent;
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.25s ease;
+}
+
+.language button:hover,
+.language button.active {
+  background: #dabb70;
+  color: #07152f;
+}
+
+.menu-button {
+  display: inline-block;
+  padding: 14px 25px;
+  background: linear-gradient(135deg, #f1d58a, #c89a3d);
+  color: #07152f;
+  text-decoration: none;
+  font-weight: 900;
+  font-size: 13px;
+  letter-spacing: 1px;
+  border-radius: 5px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.2);
+  transition: transform 0.2s ease;
+}
+
+.menu-button:hover {
+  transform: translateY(-3px);
+}
+
+main {
+  max-width: 1100px;
+  margin: auto;
+  padding: 65px 22px;
+}
+
+.section-heading {
+  text-align: center;
+  margin-bottom: 35px;
+}
+
+.section-heading .tagline {
+  color: #9b762c;
+}
+
+.section-heading h2 {
+  color: #0b2042;
+  font-size: clamp(27px, 4vw, 38px);
+  margin-bottom: 8px;
+}
+
+.section-heading > p:last-child {
+  color: #666666;
+  font-size: 15px;
+}
+
+.menu-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 22px;
+}
+
+.menu-card {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  padding: 24px;
+  background: #ffffff;
+  border: 1px solid #e8dfcc;
+  border-radius: 12px;
+  box-shadow: 0 5px 18px rgba(15, 35, 65, 0.06);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.menu-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 25px rgba(15, 35, 65, 0.12);
+}
+
+.food-icon {
+  flex-shrink: 0;
+  width: 78px;
+  height: 78px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #f7f0df;
+  border-radius: 50%;
+  font-size: 38px;
+}
+
+.card-content {
+  min-width: 0;
+}
+
+.category {
+  display: inline-block;
+  color: #9b762c;
+  font-size: 10px;
+  font-weight: 900;
+  letter-spacing: 2px;
+  margin-bottom: 5px;
+}
+
+.menu-card h3 {
+  color: #0b2042;
+  font-size: 20px;
+  line-height: 1.35;
+  margin-bottom: 7px;
+}
+
+.menu-card p:not(.price) {
+  color: #666666;
+  font-size: 13px;
+}
+
+.price {
+  color: #986d19;
+  font-size: 14px;
+  font-weight: bold;
+  margin-top: 12px;
+}
+
+.notice {
+  margin-top: 30px;
+  padding: 17px;
+  background: #eee6d4;
+  border-left: 4px solid #c49a43;
+  border-radius: 5px;
+  text-align: center;
+  color: #4b4029;
+  font-size: 14px;
+}
+
+footer {
+  padding: 35px 20px;
+  background: #07152f;
+  color: #ffffff;
+  text-align: center;
+  border-top: 4px solid #d5ad53;
+}
+
+footer .crown {
+  font-size: 32px;
+  margin-bottom: 5px;
+}
+
+footer h2 {
+  color: #e4bd65;
+  font-size: 22px;
+  letter-spacing: 2px;
+  margin-bottom: 8px;
+}
+
+footer p {
+  font-size: 13px;
+  color: #e0e0e0;
+}
+
+footer .location {
+  color: #dabb70;
+  font-weight: bold;
+  letter-spacing: 3px;
+  margin-top: 12px;
+}
+
+@media (max-width: 650px) {
+  .hero {
+    min-height: auto;
+    padding: 45px 18px 50px;
+  }
+
+  main {
+    padding: 45px 15px;
+  }
+
+  .menu-grid {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+
+  .menu-card {
+    padding: 18px;
+    gap: 14px;
+  }
+
+  .food-icon {
+    width: 65px;
+    height: 65px;
+    font-size: 32px;
+  }
+
+  .menu-card h3 {
+    font-size: 18px;
+  }
+
+  .tagline {
+    letter-spacing: 3px;
+  }
+}
+
+/* BADSHAH DIGITAL EXPERIENCE */
+
+.experience {
+  margin-top: 55px;
+  padding: 35px 0;
+}
+
+.experience-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 20px;
+}
+
+.experience-card {
+  background: #ffffff;
+  border: 1px solid #e5d5ad;
+  border-radius: 14px;
+  padding: 28px 20px;
+  text-align: center;
+  box-shadow: 0 7px 22px rgba(15, 35, 65, 0.07);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.experience-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 28px rgba(15, 35, 65, 0.13);
+}
+
+.experience-icon {
+  width: 75px;
+  height: 75px;
+  margin: 0 auto 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #f7f0df;
+  border-radius: 50%;
+  font-size: 36px;
+}
+
+.experience-card h3 {
+  color: #0b2042;
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.experience-card p {
+  color: #666666;
+  font-size: 14px;
+  min-height: 45px;
+  margin-bottom: 18px;
+}
+
+.experience-button {
+  display: inline-block;
+  padding: 11px 18px;
+  border: 1px solid #c49a43;
+  border-radius: 6px;
+  background: linear-gradient(135deg, #f1d58a, #c89a3d);
+  color: #07152f;
+  font-size: 13px;
+  font-weight: bold;
+  text-decoration: none;
+  cursor: pointer;
+  font-family: inherit;
+  transition: 0.2s ease;
+}
+
+.experience-button:hover {
+  background: #07152f;
+  color: #e4bd65;
+  border-color: #07152f;
+}
+
+.game-box {
+  margin-top: 30px;
+  padding: 28px 20px;
+  border: 1px solid #d5ad53;
+  border-radius: 14px;
+  background: linear-gradient(145deg, #07152f, #102d55);
+  color: #ffffff;
+  text-align: center;
+}
+
+.game-box[hidden] {
+  display: none;
+}
+
+.game-box h3 {
+  color: #e4bd65;
+  font-size: 23px;
+  margin-bottom: 10px;
+}
+
+.game-box p {
+  margin-bottom: 18px;
+}
+
+.number-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+  margin: 20px 0;
+}
+
+.number-buttons button {
+  width: 48px;
+  height: 48px;
+  border: 1px solid #e4bd65;
+  border-radius: 50%;
+  background: #ffffff;
+  color: #07152f;
+  font-size: 18px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.number-buttons button:hover {
+  background: #e4bd65;
+}
+
+#gameResult {
+  font-weight: bold;
+  color: #e4bd65;
+  min-height: 25px;
+}
+
+#playAgainButton {
+  margin-top: 5px;
+}
+
+@media (max-width: 750px) {
+  .experience-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .experience-card {
+    padding: 24px 18px;
+  }
+
+  .experience-card p {
+    min-height: auto;
+  }
+}
+
+/* WHATSAPP CONTACT SECTION */
+
+.whatsapp-section {
+  margin: 30px 0;
+  padding: 30px 20px;
+  border: 1px solid #e5d5ad;
+  border-radius: 14px;
+  background: #ffffff;
+  text-align: center;
+  box-shadow: 0 7px 22px rgba(15, 35, 65, 0.06);
+}
+
+.whatsapp-icon {
+  font-size: 38px;
+  margin-bottom: 10px;
+}
+
+.whatsapp-section h2 {
+  color: #0b2042;
+  font-size: 24px;
+  margin-bottom: 8px;
+}
+
+.whatsapp-section p {
+  color: #666666;
+  font-size: 14px;
+  margin-bottom: 18px;
+}
+
+.whatsapp-button {
+  display: inline-block;
+  padding: 13px 23px;
+  border-radius: 7px;
+  background: #168c4b;
+  color: #ffffff;
+  font-weight: bold;
+  font-size: 14px;
+  text-decoration: none;
+  transition: 0.2s ease;
+}
+
+.whatsapp-button:hover {
+  background: #106d39;
+  transform: translateY(-2px);
+}
+
+/* BADSHAH TABLE NUMBER */
+
+.table-badge {
+  display: inline-block;
+  margin: 18px auto 0;
+  padding: 10px 22px;
+  border: 1px solid #e4bd65;
+  border-radius: 30px;
+  background: rgba(228, 189, 101, 0.12);
+  color: #f1d58a;
+  font-size: 16px;
+  font-weight: bold;
+  letter-spacing: 0.5px;
+}
+
+.table-badge[hidden] {
+  display: none;
+}
