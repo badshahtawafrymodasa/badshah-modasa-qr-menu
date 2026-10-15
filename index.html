@@ -119,11 +119,160 @@
       <button
         class="experience-button"
         id="gameButton"
-        onclick="playGame()">
-        Play Now
+        onclick="openGameHub()">
+        Enter Timepass Arena 👑
       </button>
     </article>
   </div>
+
+  <!-- BADSHAH TIMEPASS ARENA -->
+<section class="game-hub" id="gameHub" hidden>
+  <div class="game-hub-header">
+    <div class="game-hub-crown">👑</div>
+    <h2>BADSHAH TIMEPASS ARENA</h2>
+    <p>Choose your game. Enjoy your royal time!</p>
+  </div>
+
+  <div class="game-hub-grid">
+    <button type="button" class="hub-game-card"
+      onclick="openHubGame('challenge')">
+      <span class="hub-game-icon">🏆</span>
+      <strong>Badshah Challenge</strong>
+      <small>Quiz &amp; royal title</small>
+    </button>
+
+    <button type="button" class="hub-game-card"
+      onclick="openHubGame('fingers')">
+      <span class="hub-game-icon">⚡</span>
+      <strong>Fast Fingers</strong>
+      <small>15-second tapping game</small>
+    </button>
+
+    <button type="button" class="hub-game-card"
+      onclick="openHubGame('masti')">
+      <span class="hub-game-icon">😂</span>
+      <strong>Table Pe Masti</strong>
+      <small>Fun questions for everyone</small>
+    </button>
+
+    <button type="button" class="hub-game-card"
+      onclick="openHubGame('lucky')">
+      <span class="hub-game-icon">🎲</span>
+      <strong>Lucky Number</strong>
+      <small>Test your luck</small>
+    </button>
+
+    <button type="button" class="hub-game-card"
+      onclick="openHubGame('spin')">
+      <span class="hub-game-icon">🎡</span>
+      <strong>Lucky Spin</strong>
+      <small>Spin for royal fun</small>
+    </button>
+
+    <button type="button" class="hub-game-card"
+      onclick="openHubGame('memory')">
+      <span class="hub-game-icon">🧠</span>
+      <strong>Memory Match</strong>
+      <small>Find all matching pairs</small>
+    </button>
+  </div>
+
+  <button type="button" class="experience-button"
+    onclick="closeGameHub()">
+    Back to Menu
+  </button>
+</section>
+<!-- END BADSHAH TIMEPASS ARENA -->
+
+<!-- BADSHAH CHALLENGE QUIZ -->
+<section class="hub-play-area" id="challengeGame" hidden>
+  <h2>🏆 Badshah Challenge</h2>
+  <p id="quizProgress">Question 1 of 5</p>
+  <h3 id="quizQuestion">Ready for the challenge?</h3>
+
+  <div id="quizAnswers" class="quiz-answers"></div>
+  <p id="quizFeedback" aria-live="polite"></p>
+  <p id="quizScore">Score: 0</p>
+
+  <button type="button" class="experience-button"
+    id="quizNextButton" onclick="nextQuizQuestion()" hidden>
+    Next Question
+  </button>
+
+  <button type="button" class="experience-button"
+    onclick="backToGameHub()">
+    Back to Game Hub
+  </button>
+</section>
+<!-- END BADSHAH CHALLENGE QUIZ -->
+
+<!-- BADSHAH FAST FINGERS GAME -->
+<section class="hub-play-area" id="fingersGame" hidden>
+  <h2>⚡ Badshah Fast Fingers</h2>
+  <p>Target emoji ko 15 seconds mein jitni baar ho sake tap kar!</p>
+
+  <div class="fingers-stats">
+    <span>⏱️ Time: <strong id="fingersTime">15</strong>s</span>
+    <span>⭐ Score: <strong id="fingersScore">0</strong></span>
+  </div>
+
+  <p class="fingers-instruction">
+    Target: <strong id="fingersTarget">👑</strong>
+  </p>
+
+  <div class="fingers-grid" id="fingersGrid">
+    <button type="button" class="fingers-tile" onclick="tapFingerTile(0)">👑</button>
+    <button type="button" class="fingers-tile" onclick="tapFingerTile(1)">🍗</button>
+    <button type="button" class="fingers-tile" onclick="tapFingerTile(2)">🌶️</button>
+    <button type="button" class="fingers-tile" onclick="tapFingerTile(3)">✨</button>
+    <button type="button" class="fingers-tile" onclick="tapFingerTile(4)">🍽️</button>
+    <button type="button" class="fingers-tile" onclick="tapFingerTile(5)">👑</button>
+    <button type="button" class="fingers-tile" onclick="tapFingerTile(6)">🥘</button>
+    <button type="button" class="fingers-tile" onclick="tapFingerTile(7)">👑</button>
+    <button type="button" class="fingers-tile" onclick="tapFingerTile(8)">🍗</button>
+  </div>
+
+  <p id="fingersMessage" aria-live="polite">Ready for the challenge?</p>
+
+  <button type="button" class="experience-button"
+    id="fingersStartButton" onclick="startFastFingers()">
+    START 15-SECOND GAME
+  </button>
+
+  <button type="button" class="experience-button"
+    onclick="backToGameHub()">
+    Back to Game Hub
+  </button>
+</section>
+<!-- END BADSHAH FAST FINGERS GAME -->
+
+<!-- BADSHAH TABLE PE MASTI -->
+<section class="hub-play-area" id="mastiGame" hidden>
+  <h2>😂 Table Pe Masti</h2>
+  <p>Choose your favourite! Let's see what kind of foodie you are.</p>
+
+  <p id="mastiProgress">Question 1 of 6</p>
+
+  <div class="masti-question-card">
+    <div id="mastiEmoji" class="masti-emoji">🍗</div>
+    <h3 id="mastiQuestion">Ready for some fun?</h3>
+  </div>
+
+  <div id="mastiOptions" class="masti-options"></div>
+
+  <p id="mastiFeedback" aria-live="polite"></p>
+
+  <button type="button" class="experience-button"
+    id="mastiNextButton" onclick="nextMastiQuestion()" hidden>
+    Next Question
+  </button>
+
+  <button type="button" class="experience-button"
+    onclick="backToGameHub()">
+    Back to Game Hub
+  </button>
+</section>
+<!-- END BADSHAH TABLE PE MASTI -->
 
   <div class="game-box" id="gameBox" hidden>
     <h3 id="gameHeading">Badshah Lucky Number 👑</h3>
@@ -144,6 +293,12 @@
     <button class="experience-button" onclick="playGame()" id="playAgainButton">
       Play Again
     </button>
+    <button
+  type="button"
+  class="experience-button"
+  onclick="backToGameHub()">
+  👑 Back to Game Hub
+</button>
   </div>
 </section>
 
@@ -196,6 +351,13 @@
     <p class="spin-disclaimer">
       Fun game only. No discounts or free food rewards.
     </p>
+    <button
+  type="button"
+  class="experience-button"
+  onclick="backToGameHub()">
+  👑 Back to Game Hub
+</button>
+
   </div>
 </section>
 
@@ -229,6 +391,12 @@
 
     <button type="button" class="experience-button" onclick="startMemoryGame()">Restart Game</button>
     <p class="memory-note">Fun game only. No discounts or free food rewards.</p>
+    <button
+  type="button"
+  class="experience-button"
+  onclick="backToGameHub()">
+  👑 Back to Game Hub
+</button>
   </div>
 </section>
 
