@@ -397,3 +397,587 @@ function flipMemoryCard(index) {
 if (document.getElementById("memoryGrid")) {
   startMemoryGame();
 }
+
+/* BADSHAH TIMEPASS ARENA - HUB CONTROLS */
+
+function openGameHub() {
+  const hub = document.getElementById("gameHub");
+  const luckyBox = document.getElementById("gameBox");
+
+  if (!hub) return;
+
+  // Hide the old standalone Lucky Number panel.
+  if (luckyBox) luckyBox.hidden = true;
+
+  // Hide the original Time Pass card.
+  const gameButton = document.getElementById("gameButton");
+  if (gameButton) {
+    const gameCard = gameButton.closest(".experience-card");
+    if (gameCard) gameCard.hidden = true;
+  }
+
+  hub.hidden = false;
+  hub.scrollIntoView({ behavior: "smooth", block: "start" });
+}
+
+function closeGameHub() {
+  const hub = document.getElementById("gameHub");
+  if (hub) hub.hidden = true;
+
+  const gameButton = document.getElementById("gameButton");
+  if (gameButton) {
+    const gameCard = gameButton.closest(".experience-card");
+    if (gameCard) gameCard.hidden = false;
+  }
+
+  const experience = document.getElementById("experience");
+  if (experience) {
+    experience.scrollIntoView({ behavior: "smooth", block: "start" });
+  }
+}
+
+function openHubGame(gameName) {
+  const hub = document.getElementById("gameHub");
+  if (hub) hub.hidden = true;
+
+  const gameBox = document.getElementById("gameBox");
+  const memoryGame = document.getElementById("memoryGame");
+  const spinGame = document.getElementById("spinWheelSection");
+
+  if (gameName === "challenge") {
+    const challengeGame = document.getElementById("challengeGame");
+
+    if (challengeGame) {
+      challengeGame.hidden = false;
+      startBadshahQuiz();
+      challengeGame.scrollIntoView({
+        behavior: "smooth",
+        block: "start"
+      });
+    }
+    return;
+  }
+
+  if (gameName === "fingers") {
+    const fingersGame = document.getElementById("fingersGame");
+
+    if (fingersGame) {
+      fingersGame.hidden = false;
+      fingersGame.scrollIntoView({
+        behavior: "smooth",
+        block: "start"
+      });
+    }
+    return;
+  }
+
+  if (gameName === "masti") {
+    const mastiGame = document.getElementById("mastiGame");
+
+    if (mastiGame) {
+      mastiGame.hidden = false;
+      startMastiGame();
+      mastiGame.scrollIntoView({
+        behavior: "smooth",
+        block: "start"
+      });
+    }
+    return;
+  }
+  
+  if (gameName === "lucky") {
+    if (gameBox) {
+      gameBox.hidden = false;
+      gameBox.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+    return;
+  }
+
+  if (gameName === "spin") {
+    if (spinGame) {
+      spinGame.hidden = false;
+      spinGame.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+    return;
+  }
+
+  if (gameName === "memory") {
+    if (memoryGame) {
+      memoryGame.hidden = false;
+      memoryGame.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+    return;
+  }
+
+  // The three new games will be connected in the next step.
+  if (hub) hub.hidden = false;
+  alert("Bhai, ye game agle step mein activate karenge! 👑");
+}
+
+/* BADSHAH CHALLENGE - QUIZ LOGIC */
+
+const badshahQuizQuestions = [
+  {
+    question: "Which emoji represents royalty?",
+    answers: ["🍕 Pizza", "👑 Crown", "⚽ Football", "🎧 Headphones"],
+    correct: 1
+  },
+  {
+    question: "Which one is a popular Indian flatbread?",
+    answers: ["Roti", "Ice cream", "Noodles", "Cake"],
+    correct: 0
+  },
+  {
+    question: "Which colour is associated with gold?",
+    answers: ["Blue", "Green", "Golden yellow", "Pink"],
+    correct: 2
+  },
+  {
+    question: "What should you do to find a matching memory pair?",
+    answers: [
+      "Flip two cards",
+      "Close the game",
+      "Tap the title",
+      "Refresh the page"
+    ],
+    correct: 0
+  },
+  {
+    question: "What makes a great foodie?",
+    answers: [
+      "Never trying food",
+      "Enjoying good food",
+      "Only looking at photos",
+      "Skipping every meal"
+    ],
+    correct: 1
+  }
+];
+
+let badshahQuizIndex = 0;
+let badshahQuizScore = 0;
+let badshahQuizAnswered = false;
+
+function startBadshahQuiz() {
+  badshahQuizIndex = 0;
+  badshahQuizScore = 0;
+  badshahQuizAnswered = false;
+  renderBadshahQuiz();
+}
+
+function renderBadshahQuiz() {
+  const questionEl = document.getElementById("quizQuestion");
+  const answersEl = document.getElementById("quizAnswers");
+  const progressEl = document.getElementById("quizProgress");
+  const feedbackEl = document.getElementById("quizFeedback");
+  const scoreEl = document.getElementById("quizScore");
+  const nextButton = document.getElementById("quizNextButton");
+
+  if (
+    !questionEl || !answersEl || !progressEl ||
+    !feedbackEl || !scoreEl || !nextButton
+  ) return;
+
+  if (badshahQuizIndex >= badshahQuizQuestions.length) {
+    showBadshahQuizResult();
+    return;
+  }
+
+  const current = badshahQuizQuestions[badshahQuizIndex];
+
+  progressEl.textContent =
+    "Question " + (badshahQuizIndex + 1) +
+    " of " + badshahQuizQuestions.length;
+
+  questionEl.textContent = current.question;
+  answersEl.replaceChildren();
+  feedbackEl.textContent = "";
+  scoreEl.textContent = "Score: " + badshahQuizScore;
+  nextButton.hidden = true;
+  badshahQuizAnswered = false;
+
+  current.answers.forEach((answer, index) => {
+    const button = document.createElement("button");
+    button.type = "button";
+    button.className = "quiz-answer-button";
+    button.textContent = answer;
+    button.addEventListener("click", () => chooseBadshahAnswer(index));
+    answersEl.appendChild(button);
+  });
+}
+
+function chooseBadshahAnswer(answerIndex) {
+  if (badshahQuizAnswered) return;
+
+  const current = badshahQuizQuestions[badshahQuizIndex];
+  const answerButtons = document.querySelectorAll(
+    "#quizAnswers .quiz-answer-button"
+  );
+
+  badshahQuizAnswered = true;
+
+  answerButtons.forEach((button, index) => {
+    button.disabled = true;
+
+    if (index === current.correct) {
+      button.classList.add("correct");
+    } else if (index === answerIndex) {
+      button.classList.add("incorrect");
+    }
+  });
+
+  const feedbackEl = document.getElementById("quizFeedback");
+
+  if (answerIndex === current.correct) {
+    badshahQuizScore++;
+    feedbackEl.textContent = "🎉 Correct answer! Shabash!";
+  } else {
+    feedbackEl.textContent =
+      "Not quite! Correct answer: " + current.answers[current.correct];
+  }
+
+  document.getElementById("quizScore").textContent =
+    "Score: " + badshahQuizScore;
+
+  const nextButton = document.getElementById("quizNextButton");
+  nextButton.textContent =
+    badshahQuizIndex === badshahQuizQuestions.length - 1
+      ? "See My Royal Title"
+      : "Next Question";
+
+  nextButton.hidden = false;
+}
+
+function nextQuizQuestion() {
+  if (!badshahQuizAnswered) return;
+
+  badshahQuizIndex++;
+  renderBadshahQuiz();
+}
+
+function showBadshahQuizResult() {
+  const questionEl = document.getElementById("quizQuestion");
+  const answersEl = document.getElementById("quizAnswers");
+  const progressEl = document.getElementById("quizProgress");
+  const feedbackEl = document.getElementById("quizFeedback");
+  const scoreEl = document.getElementById("quizScore");
+  const nextButton = document.getElementById("quizNextButton");
+
+  const royalTitle =
+    badshahQuizScore === 5 ? "👑 Ultimate Badshah!" :
+    badshahQuizScore >= 3 ? "🏆 Royal Foodie!" :
+    "🌟 Rising Badshah!";
+
+  progressEl.textContent = "Challenge Complete!";
+  questionEl.textContent = royalTitle;
+  answersEl.replaceChildren();
+  feedbackEl.textContent =
+    "You completed the Badshah Challenge. Well played!";
+  scoreEl.textContent =
+    "Final Score: " + badshahQuizScore + " / " +
+    badshahQuizQuestions.length;
+
+  nextButton.textContent = "Play Again";
+  nextButton.hidden = false;
+  nextButton.onclick = startBadshahQuiz;
+}
+
+function backToGameHub() {
+  const playAreas = document.querySelectorAll(".hub-play-area");
+  playAreas.forEach(area => area.hidden = true);
+
+  const hub = document.getElementById("gameHub");
+  if (hub) {
+    hub.hidden = false;
+    hub.scrollIntoView({ behavior: "smooth", block: "start" });
+  }
+}
+
+/* BADSHAH FAST FINGERS - GAME LOGIC */
+
+let fingersTimeLeft = 15;
+let fingersScore = 0;
+let fingersTimer = null;
+let fingersRunning = false;
+let fingersTargetEmoji = "👑";
+
+const fingersEmojis = ["👑", "🍗", "🌶️", "✨", "🍽️", "🥘"];
+
+function startFastFingers() {
+  clearInterval(fingersTimer);
+
+  fingersTimeLeft = 15;
+  fingersScore = 0;
+  fingersRunning = true;
+
+  const timeEl = document.getElementById("fingersTime");
+  const scoreEl = document.getElementById("fingersScore");
+  const messageEl = document.getElementById("fingersMessage");
+  const startButton = document.getElementById("fingersStartButton");
+
+  if (!timeEl || !scoreEl || !messageEl || !startButton) {
+    fingersRunning = false;
+    return;
+  }
+
+  timeEl.textContent = "15";
+  scoreEl.textContent = "0";
+  messageEl.textContent = "Go, Badshah! Tap the target emoji!";
+  startButton.disabled = true;
+
+  const tiles = document.querySelectorAll("#fingersGrid .fingers-tile");
+  tiles.forEach(tile => tile.disabled = false);
+
+  setFingersTarget();
+
+  fingersTimer = setInterval(() => {
+    fingersTimeLeft--;
+    timeEl.textContent = String(fingersTimeLeft);
+
+    if (fingersTimeLeft <= 0) {
+      endFastFingers();
+    }
+  }, 1000);
+}
+
+function setFingersTarget() {
+  const targetEl = document.getElementById("fingersTarget");
+  const tiles = document.querySelectorAll("#fingersGrid .fingers-tile");
+
+  if (!targetEl || tiles.length === 0) return;
+
+  fingersTargetEmoji =
+    fingersEmojis[Math.floor(Math.random() * fingersEmojis.length)];
+
+  targetEl.textContent = fingersTargetEmoji;
+
+  // Shuffle tile symbols and make sure the target appears at least once.
+  const symbols = Array.from(
+    { length: tiles.length },
+    () => fingersEmojis[Math.floor(Math.random() * fingersEmojis.length)]
+  );
+
+  const targetIndex = Math.floor(Math.random() * tiles.length);
+  symbols[targetIndex] = fingersTargetEmoji;
+
+  tiles.forEach((tile, index) => {
+    tile.textContent = symbols[index];
+  });
+}
+
+function tapFingerTile(index) {
+  if (!fingersRunning) return;
+
+  const tiles = document.querySelectorAll("#fingersGrid .fingers-tile");
+  const tile = tiles[index];
+
+  if (!tile || tile.disabled) return;
+
+  const messageEl = document.getElementById("fingersMessage");
+
+  if (tile.textContent === fingersTargetEmoji) {
+    fingersScore++;
+    document.getElementById("fingersScore").textContent =
+      String(fingersScore);
+
+    if (messageEl) messageEl.textContent = "🔥 Correct! Keep tapping!";
+    setFingersTarget();
+  } else {
+    if (messageEl) messageEl.textContent = "😄 Wrong symbol! Find the target!";
+  }
+}
+
+function endFastFingers() {
+  clearInterval(fingersTimer);
+  fingersTimer = null;
+  fingersRunning = false;
+
+  const startButton = document.getElementById("fingersStartButton");
+  const messageEl = document.getElementById("fingersMessage");
+  const tiles = document.querySelectorAll("#fingersGrid .fingers-tile");
+
+  tiles.forEach(tile => tile.disabled = true);
+
+  if (startButton) startButton.disabled = false;
+
+  let title = "🌟 Rising Badshah!";
+  if (fingersScore >= 15) {
+    title = "👑 Ultimate Fast Fingers Badshah!";
+  } else if (fingersScore >= 8) {
+    title = "🏆 Royal Speed Champion!";
+  }
+
+  if (messageEl) {
+    messageEl.textContent =
+      "⏰ Time's up! Score: " + fingersScore + ". " + title;
+  }
+
+  if (startButton) {
+    startButton.textContent = "PLAY AGAIN";
+  }
+}
+
+/* BADSHAH TABLE PE MASTI - GAME LOGIC */
+
+const mastiQuestions = [
+  {
+    emoji: "🧀",
+    question: "Your ultimate food team?",
+    options: ["🧀 Extra Cheese", "🌶️ Extra Masala"],
+    reactions: [
+      "Cheese Champion! Creamy royal vibes!",
+      "Masala Maharaja! Full desi swag!"
+    ]
+  },
+  {
+    emoji: "📸",
+    question: "Food arrives at your table. First move?",
+    options: ["📸 Take a photo", "😋 Take the first bite"],
+    reactions: [
+      "Food Influencer! Camera first, foodie!",
+      "Real Foodie! No time to waste!"
+    ]
+  },
+  {
+    emoji: "🍗",
+    question: "Your dream food mood?",
+    options: ["🍗 Chicken Feast", "👑 Royal Family Feast"],
+    reactions: [
+      "Chicken King! You know your cravings!",
+      "Royal Host! Food is better together!"
+    ]
+  },
+  {
+    emoji: "🌶️",
+    question: "How spicy do you like your food?",
+    options: ["🔥 Extra Spicy", "😊 Mild & Tasty"],
+    reactions: [
+      "Fire Badshah! Spice is your superpower!",
+      "Taste Expert! Balance is everything!"
+    ]
+  },
+  {
+    emoji: "🍽️",
+    question: "Who gets the last bite?",
+    options: ["😎 It's mine!", "❤️ Share with family"],
+    reactions: [
+      "Last-Bite Legend! You claimed it!",
+      "Dil Se Badshah! Sharing is royal!"
+    ]
+  },
+  {
+    emoji: "🥘",
+    question: "Choose your perfect food moment!",
+    options: ["🌙 Late-night cravings", "🎉 Family dinner"],
+    reactions: [
+      "Night Foodie! Midnight cravings win!",
+      "Family Feast Badshah! Together tastes better!"
+    ]
+  }
+];
+
+let mastiQuestionIndex = 0;
+let mastiAnswers = [];
+
+function startMastiGame() {
+  mastiQuestionIndex = 0;
+  mastiAnswers = [];
+  renderMastiQuestion();
+}
+
+function renderMastiQuestion() {
+  const progress = document.getElementById("mastiProgress");
+  const emoji = document.getElementById("mastiEmoji");
+  const question = document.getElementById("mastiQuestion");
+  const options = document.getElementById("mastiOptions");
+  const feedback = document.getElementById("mastiFeedback");
+  const nextButton = document.getElementById("mastiNextButton");
+
+  if (!progress || !emoji || !question || !options ||
+      !feedback || !nextButton) return;
+
+  if (mastiQuestionIndex >= mastiQuestions.length) {
+    showMastiResult();
+    return;
+  }
+
+  const current = mastiQuestions[mastiQuestionIndex];
+
+  progress.textContent =
+    "Question " + (mastiQuestionIndex + 1) +
+    " of " + mastiQuestions.length;
+
+  emoji.textContent = current.emoji;
+  question.textContent = current.question;
+  options.replaceChildren();
+  feedback.textContent = "";
+  nextButton.hidden = true;
+
+  current.options.forEach((option, index) => {
+    const button = document.createElement("button");
+    button.type = "button";
+    button.className = "masti-option-button";
+    button.textContent = option;
+
+    button.addEventListener("click", () => {
+      if (mastiAnswers[mastiQuestionIndex] !== undefined) return;
+
+      mastiAnswers[mastiQuestionIndex] = index;
+
+      options.querySelectorAll("button").forEach((otherButton, i) => {
+        otherButton.disabled = true;
+        if (i === index) otherButton.classList.add("selected");
+      });
+
+      feedback.textContent = current.reactions[index];
+
+      nextButton.textContent =
+        mastiQuestionIndex === mastiQuestions.length - 1
+          ? "Reveal My Foodie Style"
+          : "Next Question";
+
+      nextButton.hidden = false;
+    });
+
+    options.appendChild(button);
+  });
+}
+
+function nextMastiQuestion() {
+  if (mastiAnswers[mastiQuestionIndex] === undefined) return;
+
+  mastiQuestionIndex++;
+  renderMastiQuestion();
+}
+
+function showMastiResult() {
+  const progress = document.getElementById("mastiProgress");
+  const emoji = document.getElementById("mastiEmoji");
+  const question = document.getElementById("mastiQuestion");
+  const options = document.getElementById("mastiOptions");
+  const feedback = document.getElementById("mastiFeedback");
+  const nextButton = document.getElementById("mastiNextButton");
+
+  progress.textContent = "Challenge Complete!";
+  emoji.textContent = "👑";
+
+  const spicyChoices = mastiAnswers.filter(answer => answer === 0).length;
+
+  let title;
+  if (spicyChoices >= 4) {
+    title = "🔥 The Bold Foodie Badshah!";
+  } else if (spicyChoices <= 2) {
+    title = "❤️ The Royal Heart Badshah!";
+  } else {
+    title = "😎 The All-Rounder Badshah!";
+  }
+
+  question.textContent = title;
+  options.replaceChildren();
+  feedback.textContent =
+    "Your food personality is revealed! Play again with your family and friends.";
+
+  nextButton.hidden = false;
+  nextButton.textContent = "Play Again";
+  nextButton.onclick = startMastiGame;
+}
