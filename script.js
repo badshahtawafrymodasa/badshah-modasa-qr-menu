@@ -248,3 +248,152 @@ function spinBadshahWheel() {
     result.textContent = funResults[selectedIndex];
   });
 }
+
+/* BADSHAH MEMORY MATCH GAME */
+const memorySymbols = ["🍗", "👑", "🍽️", "🌶️", "🥘", "✨"];
+
+let memoryDeck = [];
+let memoryFirstCard = null;
+let memorySecondCard = null;
+let memoryLock = false;
+let memoryMoveCount = 0;
+let memoryMatchedPairs = 0;
+
+function startMemoryGame() {
+  const grid = document.getElementById("memoryGrid");
+  const movesDisplay = document.getElementById("memoryMoves");
+  const pairsDisplay = document.getElementById("memoryPairs");
+  const message = document.getElementById("memoryMessage");
+
+  if (!grid || !movesDisplay || !pairsDisplay || !message) return;
+
+  memoryDeck = [...memorySymbols, ...memorySymbols]
+    .sort(() => Math.random() - 0.5);
+
+  memoryFirstCard = null;
+  memorySecondCard = null;
+  memoryLock = false;
+  memoryMoveCount = 0;
+  memoryMatchedPairs = 0;
+
+  movesDisplay.textContent = "0";
+  pairsDisplay.textContent = "0";
+  message.textContent = "Ready? Find all 6 pairs!";
+
+  const cards = grid.querySelectorAll(".memory-tile");
+
+  cards.forEach((card, index) => {
+    card.textContent = "?";
+    card.classList.remove("is-flipped", "is-matched");
+    card.disabled = false;
+    card.setAttribute(
+      "aria-label",
+      "Hidden memory card " + (index + 1)
+    );
+  });
+}
+
+function flipMemoryCard(index) {
+  if (memoryLock) return;
+
+  const grid = document.getElementById("memoryGrid");
+  if (!grid) return;
+
+  const cards = grid.querySelectorAll(".memory-tile");
+  const card = cards[index];
+
+  if (!card || card.disabled || card.classList.contains("is-flipped")) {
+    return;
+  }
+
+  if (memoryDeck.length !== 12) {
+    startMemoryGame();
+  }
+
+  const selectedCard = cards[index];
+  selectedCard.textContent = memoryDeck[index];
+  selectedCard.classList.add("is-flipped");
+  selectedCard.setAttribute("aria-label", memoryDeck[index]);
+
+  if (!memoryFirstCard) {
+    memoryFirstCard = {
+      index,
+      symbol: memoryDeck[index]
+    };
+    return;
+  }
+
+  memorySecondCard = {
+    index,
+    symbol: memoryDeck[index]
+  };
+
+  memoryMoveCount++;
+  document.getElementById("memoryMoves").textContent =
+    String(memoryMoveCount);
+
+  if (memoryFirstCard.symbol === memorySecondCard.symbol) {
+    cards[memoryFirstCard.index].classList.add("is-matched");
+    cards[memorySecondCard.index].classList.add("is-matched");
+
+    cards[memoryFirstCard.index].disabled = true;
+    cards[memorySecondCard.index].disabled = true;
+
+    memoryMatchedPairs++;
+    document.getElementById("memoryPairs").textContent =
+      String(memoryMatchedPairs);
+
+    memoryFirstCard = null;
+    memorySecondCard = null;
+
+    if (memoryMatchedPairs === 6) {
+      document.getElementById("memoryMessage").textContent =
+        "🎉 Royal champion! You matched all pairs in " +
+        memoryMoveCount + " moves!";
+    } else {
+      document.getElementById("memoryMessage").textContent =
+        "👑 Match found! Keep going!";
+    }
+
+    return;
+  }
+
+  memoryLock = true;
+  document.getElementById("memoryMessage").textContent =
+    "Not a match. Try again!";
+
+  const firstIndex = memoryFirstCard.index;
+  const secondIndex = memorySecondCard.index;
+
+  setTimeout(() => {
+    const currentCards = document.querySelectorAll(
+      "#memoryGrid .memory-tile"
+    );
+
+    currentCards[firstIndex].textContent = "?";
+    currentCards[secondIndex].textContent = "?";
+
+    currentCards[firstIndex].classList.remove("is-flipped");
+    currentCards[secondIndex].classList.remove("is-flipped");
+
+    currentCards[firstIndex].setAttribute(
+      "aria-label",
+      "Hidden memory card " + (firstIndex + 1)
+    );
+    currentCards[secondIndex].setAttribute(
+      "aria-label",
+      "Hidden memory card " + (secondIndex + 1)
+    );
+
+    memoryFirstCard = null;
+    memorySecondCard = null;
+    memoryLock = false;
+
+    document.getElementById("memoryMessage").textContent =
+      "Try another pair!";
+  }, 800);
+}
+
+if (document.getElementById("memoryGrid")) {
+  startMemoryGame();
+}
