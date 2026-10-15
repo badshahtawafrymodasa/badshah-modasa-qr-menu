@@ -199,6 +199,39 @@
   </div>
 </section>
 
+<section class="memory-section" id="memoryGame">
+  <div class="memory-card">
+    <div class="memory-crown">🧠👑</div>
+    <h2>Badshah Memory Match</h2>
+    <p>Find all matching pairs! Test your memory while you wait.</p>
+
+    <div class="memory-stats">
+      <span>Moves: <strong id="memoryMoves">0</strong></span>
+      <span>Pairs: <strong id="memoryPairs">0</strong>/6</span>
+    </div>
+
+    <div class="memory-grid" id="memoryGrid">
+      <button class="memory-tile" type="button" onclick="flipMemoryCard(0)" aria-label="Card 1">?</button>
+      <button class="memory-tile" type="button" onclick="flipMemoryCard(1)" aria-label="Card 2">?</button>
+      <button class="memory-tile" type="button" onclick="flipMemoryCard(2)" aria-label="Card 3">?</button>
+      <button class="memory-tile" type="button" onclick="flipMemoryCard(3)" aria-label="Card 4">?</button>
+      <button class="memory-tile" type="button" onclick="flipMemoryCard(4)" aria-label="Card 5">?</button>
+      <button class="memory-tile" type="button" onclick="flipMemoryCard(5)" aria-label="Card 6">?</button>
+      <button class="memory-tile" type="button" onclick="flipMemoryCard(6)" aria-label="Card 7">?</button>
+      <button class="memory-tile" type="button" onclick="flipMemoryCard(7)" aria-label="Card 8">?</button>
+      <button class="memory-tile" type="button" onclick="flipMemoryCard(8)" aria-label="Card 9">?</button>
+      <button class="memory-tile" type="button" onclick="flipMemoryCard(9)" aria-label="Card 10">?</button>
+      <button class="memory-tile" type="button" onclick="flipMemoryCard(10)" aria-label="Card 11">?</button>
+      <button class="memory-tile" type="button" onclick="flipMemoryCard(11)" aria-label="Card 12">?</button>
+    </div>
+
+    <p id="memoryMessage" class="memory-message" aria-live="polite">Ready? Find all 6 pairs!</p>
+
+    <button type="button" class="experience-button" onclick="startMemoryGame()">Restart Game</button>
+    <p class="memory-note">Fun game only. No discounts or free food rewards.</p>
+  </div>
+</section>
+
     <div class="notice" id="notice">
       Please ask our staff for the latest menu and prices.
     </div>
