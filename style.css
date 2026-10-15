@@ -511,3 +511,159 @@ footer .location {
 .table-badge[hidden] {
   display: none;
 }
+
+/* BADSHAH ROYAL SPIN WHEEL */
+.spin-section {
+  margin: 35px 0;
+  padding: 20px 0;
+}
+
+.spin-card {
+  max-width: 650px;
+  margin: 0 auto;
+  padding: 30px 20px;
+  text-align: center;
+  color: #ffffff;
+  background: linear-gradient(145deg, #07152f, #15345d);
+  border: 2px solid #c49a43;
+  border-radius: 20px;
+  box-shadow: 0 12px 30px rgba(7, 21, 47, 0.18);
+}
+
+.spin-crown {
+  font-size: 42px;
+  margin-bottom: 8px;
+}
+
+.spin-card h2 {
+  color: #f1d58a;
+  font-size: 28px;
+  margin-bottom: 10px;
+}
+
+.spin-card > p {
+  line-height: 1.6;
+}
+
+.wheel-wrap {
+  position: relative;
+  width: min(310px, 82vw);
+  aspect-ratio: 1;
+  margin: 35px auto 25px;
+}
+
+.spin-wheel {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border: 7px solid #e4bd65;
+  border-radius: 50%;
+  overflow: hidden;
+  background: conic-gradient(
+    #d8aa45 0deg 60deg,
+    #102b50 60deg 120deg,
+    #f1d58a 120deg 180deg,
+    #173b68 180deg 240deg,
+    #c49a43 240deg 300deg,
+    #0b2042 300deg 360deg
+  );
+  box-shadow: 0 0 0 5px #07152f, 0 0 0 8px #c49a43;
+  transform: rotate(0deg);
+  transition: transform 4s cubic-bezier(0.12, 0.72, 0.12, 1);
+}
+
+.wheel-label {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 43%;
+  font-size: clamp(10px, 2.8vw, 13px);
+  line-height: 1.2;
+  font-weight: bold;
+  text-align: center;
+  color: #07152f;
+  transform-origin: center;
+}
+
+.label-1 { transform: translate(-50%, -50%) rotate(30deg) translateY(-85px); }
+.label-2 { transform: translate(-50%, -50%) rotate(90deg) translateY(-85px); color: #ffffff; }
+.label-3 { transform: translate(-50%, -50%) rotate(150deg) translateY(-85px); }
+.label-4 { transform: translate(-50%, -50%) rotate(210deg) translateY(-85px); color: #ffffff; }
+.label-5 { transform: translate(-50%, -50%) rotate(270deg) translateY(-85px); }
+.label-6 { transform: translate(-50%, -50%) rotate(330deg) translateY(-85px); color: #ffffff; }
+
+.wheel-center {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 58px;
+  height: 58px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform: translate(-50%, -50%);
+  border: 4px solid #f1d58a;
+  border-radius: 50%;
+  background: #07152f;
+  font-size: 28px;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.3);
+}
+
+.wheel-pointer {
+  position: absolute;
+  z-index: 2;
+  top: -18px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: #e4bd65;
+  font-size: 38px;
+  line-height: 1;
+  text-shadow: 0 2px 3px #07152f;
+}
+
+.spin-button {
+  min-width: 160px;
+  padding: 14px 28px;
+  font-size: 15px;
+}
+
+.spin-button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.spin-result {
+  min-height: 28px;
+  margin-top: 22px;
+  color: #f1d58a;
+  font-size: 19px;
+  font-weight: bold;
+}
+
+.spin-disclaimer {
+  margin-top: 12px;
+  color: #e3e8f0;
+  font-size: 12px;
+}
+
+@media (max-width: 400px) {
+  .spin-card {
+    padding: 24px 12px;
+  }
+
+  .label-1,
+  .label-2,
+  .label-3,
+  .label-4,
+  .label-5,
+  .label-6 {
+    transform-origin: center;
+  }
+
+  .label-1 { transform: translate(-50%, -50%) rotate(30deg) translateY(-70px); }
+  .label-2 { transform: translate(-50%, -50%) rotate(90deg) translateY(-70px); }
+  .label-3 { transform: translate(-50%, -50%) rotate(150deg) translateY(-70px); }
+  .label-4 { transform: translate(-50%, -50%) rotate(210deg) translateY(-70px); }
+  .label-5 { transform: translate(-50%, -50%) rotate(270deg) translateY(-70px); }
+  .label-6 { transform: translate(-50%, -50%) rotate(330deg) translateY(-70px); }
+}
