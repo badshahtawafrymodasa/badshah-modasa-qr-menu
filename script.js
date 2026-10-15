@@ -202,3 +202,49 @@ function updateTableNumber() {
 
 setLanguage("gu");
 updateTableNumber();
+
+/* BADSHAH FUN-ONLY SPIN WHEEL */
+let badshahWheelRotation = 0;
+let badshahWheelSpinning = false;
+
+function spinBadshahWheel() {
+  if (badshahWheelSpinning) return;
+
+  const wheel = document.getElementById("spinWheel");
+  const button = document.getElementById("spinButton");
+  const result = document.getElementById("spinResult");
+
+  if (!wheel || !button || !result) return;
+
+  const funResults = [
+    "👑 Badshah Lucky! Royal vibes only!",
+    "🍗 Chicken Lover! A true foodie!",
+    "🎉 Super Spin! Enjoy your royal time!",
+    "😎 Royal Swag! Full Badshah style!",
+    "🍽️ Foodie Star! Taste the happiness!",
+    "✨ Golden Luck! Have a royal day!"
+  ];
+
+  const selectedIndex = Math.floor(Math.random() * funResults.length);
+  const segmentAngle = 360 / funResults.length;
+
+  // Pointer is at the top. Select the center of a segment.
+  const targetAngle = 360 - (selectedIndex * segmentAngle + segmentAngle / 2);
+
+  const currentAngle = ((badshahWheelRotation % 360) + 360) % 360;
+  const extraRotation = (targetAngle - currentAngle + 360) % 360;
+
+  badshahWheelRotation += 360 * 5 + extraRotation;
+  badshahWheelSpinning = true;
+  button.disabled = true;
+  result.textContent = "👑 Spinning...";
+
+  wheel.style.transform = `rotate(${badshahWheelRotation}deg)`;
+
+  wheel.addEventListener("transitionend", function finishSpin() {
+    wheel.removeEventListener("transitionend", finishSpin);
+    badshahWheelSpinning = false;
+    button.disabled = false;
+    result.textContent = funResults[selectedIndex];
+  });
+}
