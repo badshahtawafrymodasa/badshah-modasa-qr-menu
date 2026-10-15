@@ -148,7 +148,7 @@ function setLanguage(language) {
 
 function openInstagram() {
   window.open(
-    "https://www.instagram.com/badshah_tawa_fry/",
+    "https://www.instagram.com/badshahtawafry.modasa/",
     "_blank",
     "noopener,noreferrer"
   );
