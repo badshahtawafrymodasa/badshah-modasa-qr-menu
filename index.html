@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Badshah Tawa Fry | Digital Menu</title>
-  <link rel="stylesheet" href="style.css?v=2">
+  <link rel="stylesheet" href="style.css?v=3">
 </head>
 <body>
 
@@ -123,7 +123,50 @@
         Enter Timepass Arena 👑
       </button>
     </article>
+
+    <article class="experience-card founder-experience-card">
+      <div class="experience-icon">👑</div>
+      <h3 id="founderCardTitle">Know Your Badshah 👑</h3>
+      <p id="founderCardText">Play a quick quiz, discover our story and become a Badshah Champion!</p>
+      <button type="button" class="experience-button" id="founderStartButton" onclick="startFounderQuiz()">Start the Challenge</button>
+    </article>
+
   </div>
+
+  <!-- KNOW YOUR BADSHAH: FOUNDER QUIZ -->
+  <section class="founder-quiz-section" id="founderQuizSection" hidden>
+    <div class="founder-quiz-crown">👑</div>
+    <h2 id="founderQuizTitle">Know Your Badshah 👑</h2>
+    <p id="founderQuizSubtitle">Menu dekhne aaye ho, lekin kya tum jaante ho Badshah ki kahani?</p>
+    <p id="founderQuizDescription">Play a quick quiz, discover our story and become a Badshah Champion!</p>
+    <p class="founder-quiz-progress" id="founderQuizProgress" aria-live="polite">Question 1 of 5</p>
+    <h3 id="founderQuizQuestion">Ready for the challenge?</h3>
+    <div class="founder-quiz-answers" id="founderQuizAnswers"></div>
+    <p class="founder-quiz-feedback" id="founderQuizFeedback" aria-live="polite"></p>
+    <p class="founder-quiz-score" id="founderQuizScore">Score: 0 / 5</p>
+    <div class="founder-quiz-actions">
+      <button type="button" class="experience-button" id="founderQuizNextButton" onclick="nextFounderQuestion()" hidden>Next Question</button>
+      <button type="button" class="experience-button" id="founderQuizPlayAgainButton" onclick="startFounderQuiz()" hidden>Play Again</button>
+      <button type="button" class="experience-button" id="founderQuizStoryButton" onclick="showFounderStory()" hidden>Discover Our Story</button>
+      <button type="button" class="experience-button founder-secondary-button" id="founderQuizBackButton" onclick="closeFounderQuiz()">Back</button>
+    </div>
+  </section>
+  <!-- END KNOW YOUR BADSHAH: FOUNDER QUIZ -->
+
+  <!-- BADSHAH FOUNDER STORY -->
+  <section class="founder-story-section" id="founderStorySection" hidden>
+    <p class="founder-story-eyebrow" id="founderStoryEyebrow">OUR JOURNEY</p>
+    <h2 id="founderStoryTitle">Every Badshah Has a Story 👑</h2>
+    <p id="founderStoryIntro">Har business ki shuruaat kisi sapne se hoti hai.</p>
+    <p id="founderStoryPara1">Mera naam Arbaz Khan hai. Business karne ke apne sapne ko sach karne ke liye maine apne bade bhai Fezal Khan ke saath milkar 10 October 2025 ko Bayad mein Badshah Tawa Fry ki shuruaat ki.</p>
+    <p id="founderStoryPara2">Badshah naam ke peeche bhi apnapan hai. Mere bade bhai ko log Badshah ke naam se jaante the, aur isi pehchaan ko humne apne business ka naam banaya.</p>
+    <p id="founderStoryPara3">Bayad mein non-veg food ke options ki kami thi. Humne socha ki apne sheher mein logon ko ek naya option diya jaaye. Hume customers ka achha response mila, aur unke bharose ne hume aage badhne ki himmat di.</p>
+    <p id="founderStoryPara4">Aaj hum apni journey ke agle chapter mein Modasa aaye hain. Hum chahte hain ki apne taste aur service se Modasa ke logon ka bhi bharosa jeetein.</p>
+    <p id="founderStoryPara5">Bayad se Modasa tak, safar abhi jaari hai.</p>
+    <h3 id="founderStorySignature">BADSHAH TAWA FRY — Naam Badshah, Iraade Badshah! 👑</h3>
+    <button type="button" class="experience-button" id="founderStoryBackButton" onclick="closeFounderStory()">Back to Experience</button>
+  </section>
+  <!-- END BADSHAH FOUNDER STORY -->
 
   <!-- BADSHAH TIMEPASS ARENA -->
 <section class="game-hub" id="gameHub" hidden>
