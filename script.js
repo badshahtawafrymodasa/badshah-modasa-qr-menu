@@ -92,6 +92,142 @@ const translations = {
   }
 };
 
+
+const founderTranslations = {
+  en: {
+    cardTitle: "Know Your Badshah 👑",
+    cardText: "Play a quick quiz, discover our story and become a Badshah Champion!",
+    start: "Start the Challenge",
+    quizTitle: "Know Your Badshah 👑",
+    quizSubtitle: "You came to see the menu, but do you know the story of Badshah?",
+    quizDescription: "Play a quick quiz, discover our story and become a Badshah Champion!",
+    next: "Next Question",
+    showResults: "See My Result",
+    playAgain: "Play Again",
+    discoverStory: "Discover Our Story",
+    back: "Back",
+    progress: "Question {n} of 5",
+    score: "Score: {n} / 5",
+    correct: "🎉 Correct answer!",
+    incorrect: "Not quite! Correct answer: ",
+    result5: "Wah! You are a Badshah Champion! 👑",
+    result34: "Shabaash! You know your Badshah!",
+    result02: "Abhi kahani baaki hai! Learn more and play again.",
+    completed: "Challenge Complete!",
+    storyEyebrow: "OUR JOURNEY",
+    storyTitle: "Every Badshah Has a Story 👑",
+    storyIntro: "Every business begins with a dream.",
+    storyPara1: "My name is Arbaz Khan. To make my dream of running a business come true, I started Badshah Tawa Fry with my elder brother Fezal Khan in Bayad on 10 October 2025.",
+    storyPara2: "There is a personal story behind the name Badshah. People already knew my elder brother by the name Badshah, and we made that familiar identity the name of our business.",
+    storyPara3: "Bayad had limited non-vegetarian food options. We wanted to offer people in our town another choice. Customers gave us a good response, and their trust gave us the confidence to move forward.",
+    storyPara4: "Today, we have reached Modasa for the next chapter of our journey. We want to earn the trust of people in Modasa through our taste and service.",
+    storyPara5: "From Bayad to Modasa, the journey continues.",
+    storySignature: "BADSHAH TAWA FRY — Naam Badshah, Iraade Badshah! 👑",
+    storyBack: "Back to Experience",
+    questions: [
+      {
+        question: "Who started Badshah Tawa Fry?",
+        answers: ["Arbaz Khan and Fezal Khan", "A group of friends", "An old family business team"],
+        correct: 0,
+        explanation: "Arbaz Khan started Badshah Tawa Fry with his elder brother Fezal Khan."
+      },
+      {
+        question: "Why was the restaurant named “Badshah”?",
+        answers: ["It was inspired by a film", "People knew Fezal Khan as Badshah", "It was the name of a dish"],
+        correct: 1,
+        explanation: "Fezal Khan was already known by the name Badshah."
+      },
+      {
+        question: "When did the first Badshah Tawa Fry branch open?",
+        answers: ["10 October 2024", "10 November 2025", "10 October 2025"],
+        correct: 2,
+        explanation: "The first branch opened in Bayad on 10 October 2025."
+      },
+      {
+        question: "Where did the first branch open?",
+        answers: ["Modasa", "Bayad", "Anand"],
+        correct: 1,
+        explanation: "The business began in Bayad."
+      },
+      {
+        question: "What is the main goal for the Modasa branch?",
+        answers: ["Promote only a new name", "Create only a new menu", "Earn customers’ trust through taste and service"],
+        correct: 2,
+        explanation: "We want to earn the trust of Modasa customers and give them a good dining experience."
+      }
+    ]
+  },
+  gu: {
+    cardTitle: "તમારા બાદશાહને ઓળખો 👑",
+    cardText: "ઝડપી ક્વિઝ રમો, અમારી વાર્તા જાણો અને બાદશાહ ચેમ્પિયન બનો!",
+    start: "ચેલેન્જ શરૂ કરો",
+    quizTitle: "તમારા બાદશાહને ઓળખો 👑",
+    quizSubtitle: "મેનૂ જોવા આવ્યા છો, પણ શું તમે બાદશાહની કહાની જાણો છો?",
+    quizDescription: "ઝડપી ક્વિઝ રમો, અમારી વાર્તા જાણો અને બાદશાહ ચેમ્પિયન બનો!",
+    next: "આગળનો પ્રશ્ન",
+    showResults: "મારું પરિણામ જુઓ",
+    playAgain: "ફરી રમો",
+    discoverStory: "અમારી વાર્તા જાણો",
+    back: "પાછા જાઓ",
+    progress: "પ્રશ્ન {n} માંથી 5",
+    score: "સ્કોર: {n} / 5",
+    correct: "🎉 સાચો જવાબ!",
+    incorrect: "સાચો જવાબ છે: ",
+    result5: "વાહ! તમે બાદશાહ ચેમ્પિયન છો! 👑",
+    result34: "શાબાશ! તમે તમારા બાદશાહને સારી રીતે જાણો છો!",
+    result02: "હજુ કહાની બાકી છે! વધુ જાણો અને ફરી રમો.",
+    completed: "ચેલેન્જ પૂર્ણ!",
+    storyEyebrow: "અમારી સફર",
+    storyTitle: "દરેક બાદશાહની એક કહાની હોય છે 👑",
+    storyIntro: "દરેક વ્યવસાયની શરૂઆત એક સપનાથી થાય છે.",
+    storyPara1: "મારું નામ અરબાઝ ખાન છે. વ્યવસાય કરવાનું મારું સપનું સાકાર કરવા માટે મેં મારા મોટા ભાઈ ફેઝલ ખાન સાથે મળીને 10 ઑક્ટોબર 2025ના રોજ બાયડમાં બાદશાહ તવા ફ્રાયની શરૂઆત કરી.",
+    storyPara2: "બાદશાહ નામ પાછળ પણ પોતાની લાગણી જોડાયેલી છે. મારા મોટા ભાઈને લોકો પહેલેથી જ બાદશાહના નામથી ઓળખતા હતા, અને એ જ ઓળખને અમે અમારા વ્યવસાયનું નામ બનાવ્યું.",
+    storyPara3: "બાયડમાં નોન-વેજ ભોજનના વિકલ્પો ઓછા હતા. અમે વિચાર્યું કે આપણા શહેરના લોકોને એક નવો વિકલ્પ આપવો જોઈએ. ગ્રાહકો તરફથી અમને સારો પ્રતિસાદ મળ્યો, અને તેમના વિશ્વાસે અમને આગળ વધવાની હિંમત આપી.",
+    storyPara4: "આજે અમારી સફરના નવા અધ્યાય માટે અમે મોડાસા આવ્યા છીએ. અમે અમારા સ્વાદ અને સેવા દ્વારા મોડાસાના લોકોનો પણ વિશ્વાસ જીતવા માંગીએ છીએ.",
+    storyPara5: "બાયડથી મોડાસા સુધી, સફર હજી ચાલુ છે.",
+    storySignature: "BADSHAH TAWA FRY — નામ બાદશાહ, ઇરાદા બાદશાહ! 👑",
+    storyBack: "અનુભવ વિભાગમાં પાછા જાઓ",
+    questions: [
+      {
+        question: "બાદશાહ તવા ફ્રાયની શરૂઆત કોણે કરી?",
+        answers: ["અરબાઝ ખાન અને ફેઝલ ખાન", "મિત્રોના એક જૂથે", "જૂની પારિવારિક વ્યવસાય ટીમે"],
+        correct: 0,
+        explanation: "અરબાઝ ખાને પોતાના મોટા ભાઈ ફેઝલ ખાન સાથે મળીને બાદશાહ તવા ફ્રાય શરૂ કર્યું."
+      },
+      {
+        question: "રેસ્ટોરન્ટનું નામ “બાદશાહ” રાખવાનું કારણ શું હતું?",
+        answers: ["એક ફિલ્મથી પ્રેરણા મળી", "લોકો ફેઝલ ખાનને બાદશાહ તરીકે ઓળખતા હતા", "આ એક વાનગીનું નામ હતું"],
+        correct: 1,
+        explanation: "ફેઝલ ખાનની પહેલેથી જ બાદશાહ તરીકે ઓળખ હતી."
+      },
+      {
+        question: "બાદશાહ તવા ફ્રાયની પહેલી બ્રાન્ચ ક્યારે શરૂ થઈ?",
+        answers: ["10 ઑક્ટોબર 2024", "10 નવેમ્બર 2025", "10 ઑક્ટોબર 2025"],
+        correct: 2,
+        explanation: "પહેલી બ્રાન્ચ બાયડમાં 10 ઑક્ટોબર 2025ના રોજ શરૂ થઈ."
+      },
+      {
+        question: "પહેલી બ્રાન્ચ ક્યાં શરૂ થઈ હતી?",
+        answers: ["મોડાસા", "બાયડ", "આણંદ"],
+        correct: 1,
+        explanation: "વ્યવસાયની શરૂઆત બાયડમાં થઈ હતી."
+      },
+      {
+        question: "મોડાસા બ્રાન્ચનો મુખ્ય હેતુ શું છે?",
+        answers: ["ફક્ત નવું નામ પ્રચારવું", "ફક્ત નવું મેનૂ બનાવવું", "સ્વાદ અને સેવા દ્વારા ગ્રાહકોનો વિશ્વાસ જીતવો"],
+        correct: 2,
+        explanation: "અમે મોડાસાના ગ્રાહકોનો વિશ્વાસ જીતવા અને તેમને સારો ભોજનનો અનુભવ આપવા માંગીએ છીએ."
+      }
+    ]
+  }
+};
+
+let founderQuizIndex = 0;
+let founderQuizScore = 0;
+let founderSelectedAnswer = null;
+let founderQuizActive = false;
+let founderQuizFinished = false;
+
 let luckyNumber = 1;
 let currentLanguage = "gu";
 
@@ -144,6 +280,8 @@ function setLanguage(language) {
   document.getElementById("enBtn").classList.toggle("active", language === "en");
 
   document.documentElement.lang = language === "gu" ? "gu" : "en";
+  setFounderLanguage(language);
+  updateTableNumber();
 }
 
 function openInstagram() {
@@ -980,4 +1118,211 @@ function showMastiResult() {
   nextButton.hidden = false;
   nextButton.textContent = "Play Again";
   nextButton.onclick = startMastiGame;
+}
+
+/* KNOW YOUR BADSHAH - FOUNDER STORY QUIZ */
+function setFounderLanguage(language) {
+  const copy = founderTranslations[language];
+  if (!copy) return;
+
+  const textMap = {
+    founderCardTitle: copy.cardTitle,
+    founderCardText: copy.cardText,
+    founderStartButton: copy.start,
+    founderQuizTitle: copy.quizTitle,
+    founderQuizSubtitle: copy.quizSubtitle,
+    founderQuizDescription: copy.quizDescription,
+    founderQuizPlayAgainButton: copy.playAgain,
+    founderQuizStoryButton: copy.discoverStory,
+    founderQuizBackButton: copy.back,
+    founderStoryEyebrow: copy.storyEyebrow,
+    founderStoryTitle: copy.storyTitle,
+    founderStoryIntro: copy.storyIntro,
+    founderStoryPara1: copy.storyPara1,
+    founderStoryPara2: copy.storyPara2,
+    founderStoryPara3: copy.storyPara3,
+    founderStoryPara4: copy.storyPara4,
+    founderStoryPara5: copy.storyPara5,
+    founderStorySignature: copy.storySignature,
+    founderStoryBackButton: copy.storyBack
+  };
+
+  Object.entries(textMap).forEach(([id, value]) => {
+    const element = document.getElementById(id);
+    if (element) element.textContent = value;
+  });
+
+  if (founderQuizActive) {
+    if (founderQuizFinished) {
+      renderFounderQuizResult();
+    } else {
+      renderFounderQuestion();
+    }
+  }
+}
+
+function startFounderQuiz() {
+  founderQuizIndex = 0;
+  founderQuizScore = 0;
+  founderSelectedAnswer = null;
+  founderQuizActive = true;
+  founderQuizFinished = false;
+
+  const story = document.getElementById("founderStorySection");
+  const quiz = document.getElementById("founderQuizSection");
+  if (story) story.hidden = true;
+  if (quiz) {
+    quiz.hidden = false;
+    renderFounderQuestion();
+    quiz.scrollIntoView({ behavior: "smooth", block: "start" });
+  }
+}
+
+function renderFounderQuestion() {
+  const copy = founderTranslations[currentLanguage];
+  const questionEl = document.getElementById("founderQuizQuestion");
+  const answersEl = document.getElementById("founderQuizAnswers");
+  const progressEl = document.getElementById("founderQuizProgress");
+  const feedbackEl = document.getElementById("founderQuizFeedback");
+  const scoreEl = document.getElementById("founderQuizScore");
+  const nextButton = document.getElementById("founderQuizNextButton");
+  const playAgainButton = document.getElementById("founderQuizPlayAgainButton");
+  const storyButton = document.getElementById("founderQuizStoryButton");
+
+  if (!copy || !questionEl || !answersEl || !progressEl ||
+      !feedbackEl || !scoreEl || !nextButton ||
+      !playAgainButton || !storyButton) return;
+
+  if (founderQuizIndex >= copy.questions.length) {
+    renderFounderQuizResult();
+    return;
+  }
+
+  const current = copy.questions[founderQuizIndex];
+  progressEl.textContent = copy.progress.replace("{n}", String(founderQuizIndex + 1));
+  questionEl.textContent = current.question;
+  answersEl.replaceChildren();
+  scoreEl.textContent = copy.score.replace("{n}", String(founderQuizScore));
+  feedbackEl.textContent = "";
+  nextButton.hidden = true;
+  playAgainButton.hidden = true;
+  storyButton.hidden = true;
+
+  current.answers.forEach((answer, index) => {
+    const button = document.createElement("button");
+    button.type = "button";
+    button.className = "founder-quiz-answer";
+    button.textContent = answer;
+    button.addEventListener("click", () => chooseFounderAnswer(index));
+
+    if (founderSelectedAnswer !== null) {
+      button.disabled = true;
+      if (index === current.correct) {
+        button.classList.add("founder-correct");
+      } else if (index === founderSelectedAnswer) {
+        button.classList.add("founder-incorrect");
+      }
+    }
+    answersEl.appendChild(button);
+  });
+
+  if (founderSelectedAnswer !== null) {
+    const selectedCorrectly = founderSelectedAnswer === current.correct;
+    feedbackEl.textContent =
+      (selectedCorrectly
+        ? copy.correct
+        : copy.incorrect + current.answers[current.correct]) +
+      " " + current.explanation;
+    nextButton.textContent =
+      founderQuizIndex === copy.questions.length - 1 ? copy.showResults : copy.next;
+    nextButton.hidden = false;
+  }
+}
+
+function chooseFounderAnswer(answerIndex) {
+  if (!founderQuizActive || founderQuizFinished || founderSelectedAnswer !== null) return;
+
+  const copy = founderTranslations[currentLanguage];
+  const current = copy.questions[founderQuizIndex];
+  if (!current || answerIndex < 0 || answerIndex >= current.answers.length) return;
+
+  founderSelectedAnswer = answerIndex;
+  if (answerIndex === current.correct) founderQuizScore++;
+  renderFounderQuestion();
+}
+
+function nextFounderQuestion() {
+  if (!founderQuizActive || founderQuizFinished || founderSelectedAnswer === null) return;
+
+  const copy = founderTranslations[currentLanguage];
+  if (founderQuizIndex >= copy.questions.length - 1) {
+    founderQuizFinished = true;
+    renderFounderQuizResult();
+    return;
+  }
+
+  founderQuizIndex++;
+  founderSelectedAnswer = null;
+  renderFounderQuestion();
+}
+
+function renderFounderQuizResult() {
+  const copy = founderTranslations[currentLanguage];
+  const progressEl = document.getElementById("founderQuizProgress");
+  const questionEl = document.getElementById("founderQuizQuestion");
+  const answersEl = document.getElementById("founderQuizAnswers");
+  const feedbackEl = document.getElementById("founderQuizFeedback");
+  const scoreEl = document.getElementById("founderQuizScore");
+  const nextButton = document.getElementById("founderQuizNextButton");
+  const playAgainButton = document.getElementById("founderQuizPlayAgainButton");
+  const storyButton = document.getElementById("founderQuizStoryButton");
+
+  if (!copy || !progressEl || !questionEl || !answersEl ||
+      !feedbackEl || !scoreEl || !nextButton ||
+      !playAgainButton || !storyButton) return;
+
+  founderQuizFinished = true;
+  progressEl.textContent = copy.completed;
+  questionEl.textContent = copy.score.replace("{n}", String(founderQuizScore));
+  answersEl.replaceChildren();
+
+  if (founderQuizScore === 5) {
+    questionEl.textContent = copy.result5;
+  } else if (founderQuizScore >= 3) {
+    questionEl.textContent = copy.result34;
+  } else {
+    questionEl.textContent = copy.result02;
+  }
+
+  feedbackEl.textContent = "";
+  scoreEl.textContent = copy.score.replace("{n}", String(founderQuizScore));
+  nextButton.hidden = true;
+  playAgainButton.hidden = false;
+  storyButton.hidden = false;
+}
+
+function showFounderStory() {
+  const quiz = document.getElementById("founderQuizSection");
+  const story = document.getElementById("founderStorySection");
+  founderQuizActive = false;
+  if (quiz) quiz.hidden = true;
+  if (story) {
+    story.hidden = false;
+    story.scrollIntoView({ behavior: "smooth", block: "start" });
+  }
+}
+
+function closeFounderQuiz() {
+  const quiz = document.getElementById("founderQuizSection");
+  founderQuizActive = false;
+  if (quiz) quiz.hidden = true;
+  const experience = document.getElementById("experience");
+  if (experience) experience.scrollIntoView({ behavior: "smooth", block: "start" });
+}
+
+function closeFounderStory() {
+  const story = document.getElementById("founderStorySection");
+  if (story) story.hidden = true;
+  const experience = document.getElementById("experience");
+  if (experience) experience.scrollIntoView({ behavior: "smooth", block: "start" });
 }
